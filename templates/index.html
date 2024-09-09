@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Shape Prediction</title>
+</head>
+<body>
+    <h1>Body Shape Prediction</h1>
+    <form action="/predict" method="POST">
+        Dress size: <input type='text' name="Dress_size" required><br>
+        Breasts: <input type='text' name="Breasts" required><br>
+        Waist: <input type='text' name="Waist" required><br>
+        Hips: <input type='text' name="Hips" required><br>
+        Shoe: <input type='text' name="Shoe" required><br>
+        Height: <input type='text' name="Height" required><br>
+        Weight: <input type='text' name="Weight" required><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if result %}
+        <h2>Predicted Body Shape: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>
