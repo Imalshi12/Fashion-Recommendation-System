@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+body {
+    font-family: "Nunito", sans-serif;
+    background: linear-gradient(135deg, #f3f4f6, #e2e2e2);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 8px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #8f246b;
+    margin: 0;
+}
+
+main {
+    padding: 40px;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+    margin-top: 1px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #8f246b;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+button {
+    background: linear-gradient(135deg, #53054d, #96069b);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg,#96069b, #53054d);
+    transform: scale(1.02);
+}
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e2f0ff;
+    border: 1px solid #b3d7ff;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.result h2 {
+    font-size: 1rem;
+    color: #8f246b;
+    margin: 0;
+}
+
+.result span {
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer .back-link {
+    color: #8f246b;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+footer .back-link:hover {
+    text-decoration: underline;
+}

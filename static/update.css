@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+body {
+    font-family: "Nunito", sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    color: #8f246b;
+    padding: 1rem;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+}
+
+/* Form styling */
+form {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+    margin-bottom: 0.3rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    color: #333;
+    font-family: "Nunito", sans-serif;
+}
+
+form input[type="text"], 
+form input[type="email"], 
+form input[type="number"], 
+form input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+form input[type="submit"] {
+    background-color: #8f246b;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 180px;
+    font-family: "Nunito", sans-serif;
+}
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Link styling */
+a {
+    display: block;
+    text-align: center;
+    margin: 2rem auto;
+    color: #8f246b;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Predictions - Body Shape Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='prediction.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Predictions</h1>
+        </header>
+
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dress Size</th>
+                        <th>Breasts</th>
+                        <th>Waist</th>
+                        <th>Hips</th>
+                        <th>Shoe Size</th>
+                        <th>Height</th>
+                        <th>Weight</th>
+                        <th>Body Shape</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for prediction in predictions %}
+                    <tr>
+                        <td>{{ prediction.dress_size }}</td>
+                        <td>{{ prediction.breasts }}</td>
+                        <td>{{ prediction.waist }}</td>
+                        <td>{{ prediction.hips }}</td>
+                        <td>{{ prediction.shoe }}</td>
+                        <td>{{ prediction.height }}</td>
+                        <td>{{ prediction.weight }}</td>
+                        <td>{{ prediction.body_shape }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </main>
+
+        <footer>
+            <a href="{{ url_for('home') }}" class="back-link">Back to Home</a>
+        </footer>
+    </div>
+</body>
+</html>

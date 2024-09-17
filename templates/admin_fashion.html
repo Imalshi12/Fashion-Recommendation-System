@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Fashion Items</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS */
+        body {
+            background-color: #f8f9fa;
+            font-family: "Nunito", sans-serif;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin-top: 10px;
+        }
+
+        .card {
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #8f246b;
+            color: #fff;
+            font-size: 1.22rem;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 1.4rem;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .btn-success {
+            background-color: #8f246b;
+            border: none;
+        }
+
+        .btn-success:hover {
+            background-color:  #df80ff;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            border: none;
+        }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        table {
+            margin-top: 10px;
+        }
+
+        table th, table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        table img {
+            border-radius: 0.25rem;
+        }
+
+        table thead {
+            background-color:  #8f246b;
+            color: #fff;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tbody tr:hover {
+            background-color: #e9ecef;
+        }
+
+        .alert-custom {
+            border: 1px solid #007bff;
+            border-radius: 0.25rem;
+            background-color: #e9f5ff;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Manage Fashion Items</h1>
+
+    <!-- Add New Fashion Item Form -->
+    <div class="card mb-4">
+        <div class="card-header">Add New Fashion Item</div>
+        <div class="card-body">
+            <form method="POST" action="{{ url_for('manage_fashion') }}">
+                <div class="mb-3">
+                    <label for="body_shape" class="form-label">Body Shape</label>
+                    <input type="text" class="form-control" id="body_shape" name="body_shape" required>
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Item Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image URL</label>
+                    <input type="url" class="form-control" id="image" name="image" required>
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="text" class="form-control" id="price" name="price" required>
+                </div>
+                
+                <button type="submit" class="btn btn-success">Add Fashion Item</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Display All Fashion Items -->
+    <h2 class="mt-4 mb-3">All Fashion Items</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Body Shape</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Link</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in fashion_items %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.body_shape }}</td>
+                <td>{{ item.name }}</td>
+                <td><img src="{{ item.image }}" alt="Image" width="50" height="50"></td>
+                <td>{{ item.price }}</td>
+                <td><a href="{{ item.link }}" target="_blank">Buy</a></td>
+                <td>
+                    <a href="{{ url_for('edit_fashion_item', item_id=item.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ url_for('delete_fashion_item', item_id=item.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

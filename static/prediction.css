@@ -1,0 +1,80 @@
+/* predict.css */
+
+body {
+    background: url('https://img.freepik.com/free-photo/dreamy-woman-posing-stylish-jacket_197531-13210.jpg?w=740&t=st=1725977939~exp=1725978539~hmac=f46235c619b3facabb90ad09d9b5f122bfe0c54639b52813f18aeee949f3006a') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 1200px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    color: #600080;
+    text-align: center;
+}
+
+main {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #600080;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #e0e0e0;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+.back-link {
+    color: #600080;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

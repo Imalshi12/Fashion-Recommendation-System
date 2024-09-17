@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='update.css') }}">
+    <title>Update Profile</title>
+</head>
+<body>
+    <h1>Update Your Profile</h1>
+    
+    <form method="POST" action="{{ url_for('update_profile') }}">
+        {{ form.hidden_tag() }}
+
+        <div>
+            {{ form.username.label }} <br>
+            {{ form.username(size=32) }}
+        </div>
+
+        <div>
+            {{ form.email.label }} <br>
+            {{ form.email(size=32) }}
+        </div>
+
+        <div>
+            {{ form.age.label }} <br>
+            {{ form.age() }}
+        </div>
+
+        <div>
+            {{ form.password.label }} <br>
+            {{ form.password(size=32) }}
+        </div>
+
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+
+    <div>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Body Type</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='body_display.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Body Type: {{ body_shape }}</h1>
+        <p class="description">Based on your measurements, your body shape is classified as {{ body_shape }}.</p>
+        
+        <div class="body-type-info">
+            {% if body_shape == 'Hourglass' %}
+                <img src="{{ url_for('static', filename='images/download.jpg') }}" alt="Hourglass Body Shape">
+                <div class="body-details">
+                    <p><strong>Characteristics:</strong> The hourglass figure is characterized by a well-defined waist with nearly equal bust and hip measurements. This shape is often considered balanced and curvy.</p>
+                    <p><strong>Fashion Tips:</strong> Emphasize your waist with fitted or wrap dresses. Try high-waisted skirts and tailored trousers to highlight your curves.</p>
+                </div>
+                
+            {% elif body_shape == 'Pear' %}
+                <img src="{{ url_for('static', filename='images/pear.jpg') }}" alt="Pear Body Shape">
+                <div class="body-details">
+                    <p><strong>Characteristics:</strong> The pear shape features narrower shoulders and bust with wider hips and thighs. This body shape typically has a more defined waist.</p>
+                    <p><strong>Fashion Tips:</strong> Draw attention to your upper body with bright colors or patterns. Opt for A-line skirts and dresses that accentuate your waist and balance your proportions.</p>
+                </div>
+            {% elif body_shape == 'Apple' %}
+                <img src="{{ url_for('static', filename='images/apple.jpg') }}" alt="Apple Body Shape">
+                <div class="body-details">
+                    <p><strong>Characteristics:</strong> The apple body shape has a broader upper body with a larger bust and waist. The hips and legs are generally slimmer compared to the upper body.</p>
+                    <p><strong>Fashion Tips:</strong> Opt for empire waistlines and V-neck tops to create a flattering silhouette. Choose flowy fabrics that skim over your waist and hips.</p>
+                </div>
+            {% elif body_shape == 'Rectangle' %}
+                <img src="{{ url_for('static', filename='images/rectangle.jpg') }}" alt="Rectangle Body Shape">
+                <div class="body-details">
+                    <p><strong>Characteristics:</strong> The rectangle body shape is characterized by a straight waist with similar measurements for the bust, waist, and hips. This shape is often referred to as athletic or lean.</p>
+                    <p><strong>Fashion Tips:</strong> Add curves with peplum tops and belts. Experiment with layered outfits and fitted clothing to create a more defined waistline.</p>
+                </div>
+            </div>
+            {% elif body_shape == 'Inverted Triangle' %}
+                <img src="{{ url_for('static', filename='images/IT.jpg') }}" alt="Inverted Traingle Body Shape">
+                <div class="body-details">
+                    <p><strong>Characteristics:</strong> The rectangle body shape is characterized by a straight waist with similar measurements for the bust, waist, and hips. This shape is often referred to as athletic or lean.</p>
+                    <p><strong>Fashion Tips:</strong> Add curves with peplum tops and belts. Experiment with layered outfits and fitted clothing to create a more defined waistline.</p>
+                </div>
+            {% endif %}
+        </div>
+
+        <a href="{{ url_for('fashion_recommendation', body_shape=body_shape) }}" class="buy-button">Shop Now</a>
+    </div>
+</body>
+</html>

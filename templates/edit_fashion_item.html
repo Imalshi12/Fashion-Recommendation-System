@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<form method="POST" action="{{ url_for('edit_fashion_item', item_id=item.id) }}">
+        <input type="text" name="body_shape" value="{{ item.body_shape }}" required>
+        <input type="text" name="name" value="{{ item.name }}" required>
+        <input type="text" name="image" value="{{ item.image }}" required>
+        <input type="text" name="price" value="{{ item.price }}" required>
+        <!-- Removed link field input -->
+        <button type="submit">Update Fashion Item</button>
+    </form>
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

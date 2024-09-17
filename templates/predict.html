@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='predict.css') }}">
+    <title>Predict Your Body Shape</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Discover Your Body Shape</h1>
+        </header>
+
+        <main>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="dress_size">Dress Size:</label>
+                    <input type="text" id="dress_size" name="Dress_size" placeholder="e.g., 8" required>
+                </div>
+                <div class="form-group">
+                    <label for="breasts">Breasts (cm):</label>
+                    <input type="text" id="breasts" name="Breasts" placeholder="e.g., 90" required>
+                </div>
+                <div class="form-group">
+                    <label for="waist">Waist (cm):</label>
+                    <input type="text" id="waist" name="Waist" placeholder="e.g., 70" required>
+                </div>
+                <div class="form-group">
+                    <label for="hips">Hips (cm):</label>
+                    <input type="text" id="hips" name="Hips" placeholder="e.g., 95" required>
+                </div>
+                <div class="form-group">
+                    <label for="shoe">Shoe Size:</label>
+                    <input type="text" id="shoe" name="Shoe" placeholder="e.g., 38" required>
+                </div>
+                <div class="form-group">
+                    <label for="height">Height (cm):</label>
+                    <input type="text" id="height" name="Height" placeholder="e.g., 170" required>
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight (kg):</label>
+                    <input type="text" id="weight" name="Weight" placeholder="e.g., 60" required>
+                </div>
+                <button type="submit">Predict Your Body Shape</button>
+            </form>
+
+            {% if body_shape %}
+                <div class="result">
+                    <h2>Your body shape is: <span>{{ body_shape }}</span></h2>
+                </div>
+            {% endif %}
+        </main>
+
+        <footer>
+            <a href="{{ url_for('home') }}" class="back-link">Back to Home</a>
+        </footer>
+    </div>
+</body>
+</html>

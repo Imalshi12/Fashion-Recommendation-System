@@ -3,22 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Body Shape Prediction</title>
+    <title>Home - FashionFit</title>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Body Shape Prediction</h1>
-    <form action="/predict" method="POST">
-        Dress size: <input type='text' name="Dress_size" required><br>
-        Breasts: <input type='text' name="Breasts" required><br>
-        Waist: <input type='text' name="Waist" required><br>
-        Hips: <input type='text' name="Hips" required><br>
-        Shoe: <input type='text' name="Shoe" required><br>
-        Height: <input type='text' name="Height" required><br>
-        Weight: <input type='text' name="Weight" required><br>
-        <input type="submit" value="Predict">
-    </form>
-    {% if result %}
-        <h2>Predicted Body Shape: {{ result }}</h2>
-    {% endif %}
-</body>
-</html>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>Style<span>Spark</span></p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="{{ url_for('home') }}" class="link active">Home</a></li>
+                    <li><a href="{{ url_for('predict') }}" class="link">Predict</a></li>
+                    <li><a href="about.html" class="link">About Us</a></li>
+                    <li><a href="contact.html" class="link">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                {% if current_user.is_authenticated %}
+                    <button class="btn"><a href="{{ url_for('logout') }}">Logout</a></button>
+                {% else %}
+                    <button class="btn"><a href="{{ url_for('login') }}">Sign in</a></button>
+                    <button class="btn"><a href="{{ url_for('register') }}">Sign up</a></button>
+                {% endif %}
+            </div>
+        </nav>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="hero" id="hero">
+                <div class="hero-content">
+                    <h1>Find Your Perfect Fashion Fit</h1>
+                    <p>Discover clothing that complements your body shape perfectly.</p>
+                    <a href="{{ url_for('predict') }}" class="btn btn-primary">Get Started</a>
+                </div>
+            </section>
+            <section class="icons-container">
+
+                <div class="icons">
+                <img src="static/images/delivery.png" alt="">
+                <div class="info">
+                <h3>Free Delivery</h3>
+                <span>On all orders</span>
+            </div>
+        </div>
+        
+        <div class="icons">
+            <img src="static/images/money.png" alt="">
+            <div class="info">
+            <h3>10 days returns</h3>
+            <span>Moneyback guarantee</span>
+        </div>
+        </div>
+        
+        <div class="icons">
+        <img src="static/images/gift.png" alt="">
+        <div class="info">
+        <h3>Offer & gifts</h3>
+        <span>On all orders</span>
+        </div>
+        </div>
+        
+        <div class="icons">
+        <img src="static/images/payment.png" alt="">
+        <div class="info">
+        <h3>Secure payments</h3>
+        <span>Protected by Paypal</span>
+        </div>
+        </div>
+        </section>
+        
+
+<!-- About -->
+    <section class="about" id="about">
+    <h1 class="heading">Why choose us?</h1>
+    <div class="row">
+        <div class="video-container">
+            <video src="static/images/New.mov" loop autoplay muted></video>
+            <h3>Best sellers</h3>
+        </div>
+
+        <div class="content">
+            <p>StyleSpark makes shopping simple and exciting with smart technology and personal fashion advice. Our AI helps you find outfits that fit your body shape perfectly. Enjoy our carefully chosen styles, helpful fashion tips, and exclusive discounts. Choose StyleSpark for fashion that’s a perfect fit for both your body and your life.</p>
+        <a href="about.html" class="n-btn">Learn more</a>
+        </div>
+    </div>
+    </section>
+
+    
+
+<!-- Featured Fashion Items -->
+<section class="featured-items">
+    <h2>Featured Fashion Items</h2>
+    <p>Explore our handpicked collection of the latest trends, tailored just for you. Each item is selected based on your body shape.</p>
+    <div class="items-grid">
+        <div class="item-card">
+            <img src="static/images/Vneck.jpg" alt="Item 1">
+            <h3>White V-neck top</h3>
+            <p>Rs. 1500</p>
+            <p class="body-type">Body Type: Hourglass</p>
+            <a href="#" class="btn btn-secondary">Add cart</a>
+        </div>
+        <div class="item-card">
+            <img src="static/images/banana.jpg" alt="Item 2">
+            <h3>Pink Layered Dress</h3>
+            <p>Rs. 3490</p>
+            <p class="body-type">Body Type: Banana</p>
+            <a href="#" class="btn btn-secondary">Add cart</a>
+        </div>
+        <div class="item-card">
+            <img src="static/images/apple.jpg" alt="Item 3">
+            <h3>Orange Flare Dress</h3>
+            <p>Rs. 2500</p>
+            <p class="body-type">Body Type: Apple</p>
+            <a href="#" class="btn btn-secondary">Add cart</a>
+        </div>
+        <div class="item-card">
+            <img src="static/images/rectangle.jpg" alt="Item 4">
+            <h3>Blue Belted Dress</h3>
+            <p>Rs. 3890</p>
+            <p class="body-type">Body Type: Rectangle</p>
+            <a href="#" class="btn btn-secondary">Add cart</a>
+        </div>
+        <div class="item-card">
+            <img src="static/images/inverted.jpg" alt="Item 5">
+            <h3>Floral Flowy Skirts</h3>
+            <p>Rs. 1890</p>
+            <p class="body-type">Body Type: Inverted Triangle</p>
+            <a href="#" class="btn btn-secondary">Add cart</a>
+        </div>
+        <div class="item-card">
+            <img src="static/images/hourglass.jpg" alt="Item 6">
+            <h3>Bodycon Party Dress</h3>
+            <p>Rs. 4500</p>
+            <p class="body-type">Body Type: Hourglass</p>
+            <a href="#" class="btn btn-secondary">Add cart</a>
+        </div>
+        <div class="item-card">
+            <img src="static/images/jean.jpg" alt="Item 7">
+            <h3>Bootcut Jean</h3>
+            <p>Rs. 5800</p>
+            <p class="body-type">Body Type: Pear</p>
+            <a href="#" class="btn btn-secondary">Add cart</a>
+        </div>
+        <div class="item-card">
+            <img src="static/images/peplam.jpg" alt="Item 8">
+            <h3>Peplum Top</h3>
+            <p>Rs. 2690</p>
+            <p class="body-type">Body Type: Banana</p>
+            <a href="#" class="btn btn-secondary">Add cart</a>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Testimonials -->
+<section class="testimonials">
+    <h2>What Our Users Say</h2>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <img src="static/images/pexels-pixabay-415829.jpg" class="testimonial-photo">
+            <p>"I love how StyleSpark knows exactly what fits me. Their recommendations have made shopping so easy!"</p>
+            <footer>- Emily R.</footer>
+        </div>
+        <div class="testimonial-card">
+            <img src="static/images/pexels-george-dolgikh-551816-1310474.jpg"  class="testimonial-photo">
+            <p>"I no longer have to guess whether something will suit me or not."</p>
+            <footer>- Sarah T.</footer>
+        </div>
+        <div class="testimonial-card">
+            <img src="static/images/pexels-emilygarland-1499327.jpg"  class="testimonial-photo">
+            <p>"I’ve saved so much time and money using StyleSpark’s personal shopping assistance. It’s like having my own stylist!"</p>
+            <footer>- Michael B.</footer>
+        </div>
+        <div class="testimonial-card">
+            <img src="static/images/pexels-olly-774909.jpg" class="testimonial-photo">
+            <p>"Their style tips and fashion blog have completely transformed my wardrobe. I feel more confident than ever!"</p>
+            <footer>- Jessica L.</footer>
+        </div>
+        <div class="testimonial-card">
+            <img src="static/images/pexels-olly-733872.jpg"  class="testimonial-photo">
+            <p>"StyleSpark offers such an amazing selection of clothes that fit my body shape perfectly. I’m hooked!"</p>
+            <footer>- Olivia M.</footer>
+        </div>
+        <div class="testimonial-card">
+            <img src="static/images/pexels-maksgelatin-4823732.jpg"  class="testimonial-photo">
+            <p>"Finally, a fashion site that actually understands my style and preferences. The AI recommendations are spot on!"</p>
+            <footer>- Chris D.</footer>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Fashion Tips -->
+<section class="fashion-tips">
+    <h2>Fashion Tips</h2>
+    <p>Stay ahead of the style game with our expert tips! From dressing for your unique body type to discovering the latest seasonal trends, our fashion blog is your go-to guide for all things stylish. Learn how to mix and match, choose the right accessories, and create stunning outfits for any occasion.</p>
+    <div class="fashion-tips-grid">
+        <div class="tip-card">
+            <img src="static/images/pexels-olly-994234.jpg" alt="Body Type Tips">
+            <h3>Dress for Your Body Shape</h3>
+            <p>Find the perfect outfits that flatter your body shape and make you feel confident.</p>
+            <a href="blog.html#body-type-tips" class="btn btn-secondary">Learn More</a>
+        </div>
+        <div class="tip-card">
+            <img src="static/images/pexels-godisable-jacob-226636-1154861.jpg" alt="Seasonal Trends">
+            <h3>Stay On-Trend</h3>
+            <p>Discover the latest seasonal trends and how to incorporate them into your wardrobe.</p>
+            <a href="blog.html#seasonal-trends" class="btn btn-secondary">Read More</a>
+        </div>
+        <div class="tip-card">
+            <img src="static/images/pexels-kpaukshtite-1460838.jpg" alt="Accessory Tips">
+            <h3>Accessorize Like a Pro</h3>
+            <p>Learn how to choose the right accessories to elevate your look and express your personal style.</p>
+            <a href="blog.html#accessory-tips" class="btn btn-secondary">Explore Now</a>
+        </div>
+    </div>
+    <a href="blog.html" class="btn btn-primary">Read Our Full Blog</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Company Info -->
+        <div class="footer-section company-info">
+            <h4>About StyleSpark</h4>
+            <p>Your go-to platform for personalized fashion recommendations. Discover outfits that suit your style and body shape with ease.</p>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Fashion Blog</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <!-- Social Media -->
+        <div class="footer-section social-media">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 StyleSpark. All Rights Reserved.</p>
+    </div>
+</footer>

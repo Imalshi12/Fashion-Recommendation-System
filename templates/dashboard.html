@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2><i class="fas fa-user-circle"></i> Dashboard</h2>
+        <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+        <a href="#activity"><i class="fas fa-history"></i> Activity</a>
+        <a href="#predictions"><i class="fas fa-chart-line"></i> Predictions</a>
+        <a href="#notifications"><i class="fas fa-bell"></i> Notifications</a>
+        <a href="#settings"><i class="fas fa-cogs"></i> Settings</a>
+        <a href="{{ url_for('logout') }}" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <div class="top-navbar">
+            <h1><i class="fas fa-user"></i> Welcome, {{ current_user.username }}!</h1>
+        </div>
+
+        <!-- Profile Section -->
+        <section id="profile" class="section">
+            <h2><i class="fas fa-address-card"></i> Profile Information</h2>
+            <p><strong>Username:</strong> {{ current_user.username }}</p>
+            <p><strong>Email:</strong> {{ current_user.email }}</p>
+            <p><strong>Age:</strong> {{ current_user.age }}</p>
+        </section>
+
+        <!-- Recent Activity Section -->
+        <section id="activity" class="section">
+            <h2><i class="fas fa-tasks"></i> Recent Activity</h2>
+            <p>No recent activity.</p>
+        </section>
+
+        <!-- Predictions Section -->
+        <section id="predictions" class="section">
+            <h2><i class="fas fa-chart-bar"></i> Your Predictions</h2>
+            {% if user_predictions %}
+                <ul>
+                    {% for prediction in user_predictions %}
+                        <li>
+                            <strong>Body Shape:</strong> {{ prediction.body_shape }}<br>
+                            <strong>Dress Size:</strong> {{ prediction.dress_size }}<br>
+                            <strong>Breasts:</strong> {{ prediction.breasts }}<br>
+                            <strong>Waist:</strong> {{ prediction.waist }}<br>
+                            <strong>Hips:</strong> {{ prediction.hips }}<br>
+                            <strong>Shoe Size:</strong> {{ prediction.shoe }}<br>
+                            <strong>Height:</strong> {{ prediction.height }}<br>
+                            <strong>Weight:</strong> {{ prediction.weight }}<br>
+                            <small>Predicted on {{ prediction.timestamp }}</small>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No predictions available.</p>
+            {% endif %}
+        </section>
+
+        <!-- Notifications Section -->
+        <section id="notifications" class="section">
+            <h2><i class="fas fa-bell"></i> Notifications</h2>
+            <p>No new notifications.</p>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="section">
+            <h2><i class="fas fa-cogs"></i> Settings</h2>
+            <a href="{{ url_for('update_profile') }}" class="button"><i class="fas fa-user-edit"></i> Update Profile</a>
+            <a href="{{ url_for('predict') }}" class="button"><i class="fas fa-ruler"></i> Find your body shape</a>
+        </section>
+    </div>
+</body>
+</html>
