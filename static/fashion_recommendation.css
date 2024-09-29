@@ -13,6 +13,9 @@ h1 {
     margin-top: 20px;
     color: #333;
 }
+.navbar-nav .nav-link{
+    margin-left: 1200px;
+}
 
 .fashion-items {
     display: flex;
@@ -56,7 +59,7 @@ h1 {
 }
 
 .add-to-cart-button {
-    background-color: #8f246b;
+    background-color: #66194d;
     border: none;
     border-radius: 5px;
     color: white;
@@ -78,7 +81,7 @@ h1 {
 }
 
 .cart-link a {
-    color: #8f246b;
+    color: #66194d;
     text-decoration: none;
     font-size: 1.1rem;
 }

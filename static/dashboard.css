@@ -1,7 +1,5 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;800&display=swap');
-
-/* Global Styling */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 body {
     margin: 0;
     padding: 0;
@@ -10,6 +8,19 @@ body {
     display: flex;
     height: 100vh;
 }
+.nav-logo p{
+    font-size: 1.5rem;
+    color: #cc3399;
+    margin-bottom: 8px;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+span{
+    color: #cc3399;
+    font-family: "Dancing Script", cursive;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
 
 a {
     text-decoration: none;
@@ -17,25 +28,21 @@ a {
 
 /* Sidebar Styling */
 .sidebar {
-    width: 180px;
+    width: 170px;
     height: 100vh;
-    background-color: #2c3e50;
+    background-color: #333;
     padding: 20px;
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
-    transition: all 0.3s ease;
 }
 
 .sidebar h2 {
     color: #ecf0f1;
     font-size: 1.6rem;
     margin-bottom: 40px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .sidebar a {
@@ -47,70 +54,102 @@ a {
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.sidebar a:hover {
-    background-color: #b366ff;
-    color: #fff;
+    margin-left: 2px;
 }
 
 .sidebar .logout {
     margin-top: auto;
-    color: #e74c3c;
+    color: #cc3399;
     font-weight: bold;
 }
 
 /* Main Content Styling */
 .main-content {
-    margin-left: 250px;
+    margin-left: 200px;
     padding: 20px;
     width: calc(100% - 250px);
     height: 100vh;
     overflow-y: scroll;
-    transition: margin-left 0.3s;
 }
 
-.top-navbar {
+/* Hero Section */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 10px;
+    border-radius: 10px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.top-navbar h1 {
-    font-size: 1.6rem;
-    color: #34495e;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.section {
     margin-bottom: 10px;
-    padding: 14px;
+    background: url(images/stylish-adult-woman-holding-shopping-bags-with-copy-space.jpg);
+    background-size: cover;
+    background-position: top;
+    text-align: center;
+    padding: 90px 10px;
+}
+
+.hero-content {
+    max-width: 50%;
+    
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-top: 0.1px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.hero-content .button {
+    padding: 10px 18px;
+    background-color: #cc3399;
+    color: white;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.hero-content .button:hover {
+    background-color: #9c33ff;
+}
+
+.hero-image img {
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+/* Profile and Other Sections */
+.section {
+    margin-bottom: 20px;
+    padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    
 }
 
 .section h2 {
     font-size: 1.4rem;
     color: #34495e;
     margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-family: 'Nunito', sans-serif;
+    margin-left: 10px;
 }
 
 .section p,
 .section li {
     font-size: 1rem;
-    line-height: 1.8;
     color: #7f8c8d;
+    line-height: 30px;
+    font-family: 'Nunito', sans-serif;
+    margin-left: 10px;
 }
 
 ul {
@@ -121,46 +160,18 @@ li {
     margin-bottom: 15px;
 }
 
-/* Buttons and Hover Effects */
-.button {
+/* Highlight Button for Body Shape Prediction */
+.highlight-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #b366ff;
+    background: linear-gradient(135deg, #77205a, #e038a8);
     color: #fff;
     font-size: 1.1rem;
     border-radius: 5px;
     margin-top: 10px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.button i {
-    margin-right: 8px;
-}
-
-.button:hover {
-    background-color: #b366ff;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
-
-    .main-content {
-        margin-left: 200px;
-        width: calc(100% - 200px);
-    }
-
-    .top-navbar h1 {
-        font-size: 1.8rem;
-    }
-
-    .section h2 {
-        font-size: 1.4rem;
-    }
-
-    .button {
-        font-size: 1rem;
-    }
+.highlight-button:hover {
+    background: linear-gradient(135deg,  #e038a8, #77205a);
 }

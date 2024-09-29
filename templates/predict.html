@@ -4,57 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='predict.css') }}">
-    <title>Predict Your Body Shape</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Body Shape Prediction</title>
 </head>
 <body>
-    <div class="container">
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>Style<span>Spark</span></p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="{{ url_for('home') }}" class="link active">Home</a></li>
+                    <li><a href="{{ url_for('dashboard') }}" class="link">Dashboard</a></li>
+                    <li><a href="about.html" class="link">About Us</a></li>
+                    <li><a href="contact.html" class="link">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                {% if current_user.is_authenticated %}
+                    <button class="btn"><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></button>
+                {% else %}
+                    <button class="btn"><a href="{{ url_for('login') }}">Sign in</a></button>
+                    <button class="btn"><a href="{{ url_for('register') }}">Sign up</a></button>
+                {% endif %}
+            </div>
+            
+        </nav>
+
         <header>
-            <h1>Discover Your Body Shape</h1>
+            <h1>Find Your Body Shape</h1>
         </header>
-
-        <main>
-            <form method="POST">
-                <div class="form-group">
-                    <label for="dress_size">Dress Size:</label>
-                    <input type="text" id="dress_size" name="Dress_size" placeholder="e.g., 8" required>
-                </div>
-                <div class="form-group">
-                    <label for="breasts">Breasts (cm):</label>
-                    <input type="text" id="breasts" name="Breasts" placeholder="e.g., 90" required>
-                </div>
-                <div class="form-group">
-                    <label for="waist">Waist (cm):</label>
-                    <input type="text" id="waist" name="Waist" placeholder="e.g., 70" required>
-                </div>
-                <div class="form-group">
-                    <label for="hips">Hips (cm):</label>
-                    <input type="text" id="hips" name="Hips" placeholder="e.g., 95" required>
-                </div>
-                <div class="form-group">
-                    <label for="shoe">Shoe Size:</label>
-                    <input type="text" id="shoe" name="Shoe" placeholder="e.g., 38" required>
-                </div>
-                <div class="form-group">
-                    <label for="height">Height (cm):</label>
-                    <input type="text" id="height" name="Height" placeholder="e.g., 170" required>
-                </div>
-                <div class="form-group">
-                    <label for="weight">Weight (kg):</label>
-                    <input type="text" id="weight" name="Weight" placeholder="e.g., 60" required>
-                </div>
-                <button type="submit">Predict Your Body Shape</button>
-            </form>
-
-            {% if body_shape %}
-                <div class="result">
-                    <h2>Your body shape is: <span>{{ body_shape }}</span></h2>
-                </div>
-            {% endif %}
-        </main>
-
+        
+        <!-- User Instruction Section -->
+        <div class="instructions">
+        <img src="static/images/diet-fitness-exercise-sport-sexy-body-happy-smiling-asian-woman-with-measuring-tape.jpg" alt="Measuring Tape" class="instruction-image">
+        <h2>Measurement Instructions</h2>
+        <p>Please follow these simple steps to accurately take your body measurements before filling out the form below.</p>
+            
+            <ul>
+                <li><strong>Dress Size:</strong> Enter your usual dress size, the size you typically wear.</li>
+                <li><strong>Breasts (cm):</strong> Measure around the fullest part of your chest, keeping the tape measure horizontal.</li>
+                <li><strong>Waist (cm):</strong> Find the narrowest part of your waist, just above your belly button, and measure around this area.</li>
+                <li><strong>Hips (cm):</strong> Measure around the widest part of your hips, ensuring the tape stays horizontal.</li>
+                <li><strong>Shoe Size:</strong> Enter the size you usually wear for shoes.</li>
+                <li><strong>Height (cm):</strong> Measure your height in centimeters while standing straight against a wall.</li>
+                <li><strong>Weight (kg):</strong> Weigh yourself using a scale and enter your weight in kilograms.</li>
+            </ul>
+            <p>Once you’ve taken your measurements, please proceed to fill out the form below.</p>
+        </div>
+        
+        <!-- Form Section -->
+        <form method="POST">
+            <div class="form-group">
+                <label for="dress_size">Dress Size:</label>
+                <input type="text" id="dress_size" name="Dress_size" placeholder="Enter your dress size (e.g., 2.0)" required>
+            </div>
+            <div class="form-group">
+                <label for="breasts">Breasts (cm):</label>
+                <input type="text" id="breasts" name="Breasts" placeholder="Enter your breast size in cm (e.g., 91.0)" required>
+            </div>
+            <div class="form-group">
+                <label for="waist">Waist (cm):</label>
+                <input type="text" id="waist" name="Waist" placeholder="Enter your waist size in cm (e.g., 61.0)" required>
+            </div>
+            <div class="form-group">
+                <label for="hips">Hips (cm):</label>
+                <input type="text" id="hips" name="Hips" placeholder="Enter your hip size in cm (e.g., 86.0)" required>
+            </div>
+            <div class="form-group">
+                <label for="shoe">Shoe Size:</label>
+                <input type="text" id="shoe" name="Shoe" placeholder="Enter your shoe size (e.g., 7.0)" required>
+            </div>
+            <div class="form-group">
+                <label for="height">Height (cm):</label>
+                <input type="text" id="height" name="Height" placeholder="Enter your height in cm (e.g., 156.0)" required>
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight (kg):</label>
+                <input type="text" id="weight" name="Weight" placeholder="Enter your weight in kg (e.g., 45.0)" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        
         <footer>
-            <a href="{{ url_for('home') }}" class="back-link">Back to Home</a>
+            <p>Need help? <a href="#">Contact Support</a></p>
         </footer>
-    </div>
-</body>
-</html>
+        

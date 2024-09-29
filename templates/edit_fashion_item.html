@@ -2,18 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<form method="POST" action="{{ url_for('edit_fashion_item', item_id=item.id) }}">
-        <input type="text" name="body_shape" value="{{ item.body_shape }}" required>
-        <input type="text" name="name" value="{{ item.name }}" required>
-        <input type="text" name="image" value="{{ item.image }}" required>
-        <input type="text" name="price" value="{{ item.price }}" required>
-        <!-- Removed link field input -->
-        <button type="submit">Update Fashion Item</button>
-    </form>
-    , initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Fashion Item</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+        body {
+            background-color: #f4f6f9;
+            font-family: "Nunito", sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-success {
+            background-color: #66194d;
+            border: none;
+            width: 90%;
+            padding: 10px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            margin-left: 20px;
+        }
+
+        .btn-success:hover {
+            background-color: #72165e;
+        }
+
+        .card-header {
+            background-color: #66194d;
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 10px;
+            border-radius: 0.75rem 0.75rem 0 0;
+        }
+
+        h2 {
+            color: #66194d;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .navbar-nav .nav-link{
+            margin-left: 1200px;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
-    
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('admin_dashboard') }}">Back</a>
+        </li>
+        
+    </ul>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">Edit Fashion Item</div>
+        <div class="card-body">
+            <form method="POST" action="{{ url_for('edit_fashion_item', item_id=item.id) }}">
+                <div class="mb-3">
+                    <label for="body_shape" class="form-label">Body Shape</label>
+                    <input type="text" class="form-control" id="body_shape" name="body_shape" value="{{ item.body_shape }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Item Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ item.name }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image URL</label>
+                    <input type="text" class="form-control" id="image" name="image" value="{{ item.image }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="text" class="form-control" id="price" name="price" value="{{ item.price }}" required>
+                </div>
+                <button type="submit" class="btn btn-success">Update Fashion Item</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

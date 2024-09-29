@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap');
+
 body {
     font-family: "Nunito", sans-serif;
     line-height: 1.6;
@@ -10,61 +11,74 @@ body {
 h1 {
     text-align: center;
     color: #8f246b;
-    padding: 1rem;
+    padding: 1.5rem 0;
     background-color: #fff;
     border-bottom: 1px solid #ddd;
     margin: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 2.5rem;
 }
 
 /* Form styling */
 form {
     max-width: 500px;
     margin: 2rem auto;
-    padding: 1rem;
+    padding: 1.5rem;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 form div {
-    margin-bottom: 0.3rem;
+    margin-bottom: 5px;
+    margin-top: 20px;
 }
 
 form label {
     display: block;
-    margin-bottom: 0.3rem;
+    margin-bottom: 5px;
     font-weight: bold;
     color: #333;
-    font-family: "Nunito", sans-serif;
 }
 
-form input[type="text"], 
-form input[type="email"], 
-form input[type="number"], 
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
 form input[type="password"] {
     width: 100%;
-    padding: 0.75rem;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     font-family: "Nunito", sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+   
+    
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="number"]:focus,
+form input[type="password"]:focus {
+    border-color: #8f246b;
+    box-shadow: 0 0 5px rgba(143, 36, 107, 0.5);
 }
 
 form input[type="submit"] {
     background-color: #8f246b;
     color: white;
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 10px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
-    margin-left: 180px;
-    font-family: "Nunito", sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 form input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #ad07ad;
+    transform: translateY(-2px);
 }
 
 /* Link styling */
@@ -74,8 +88,22 @@ a {
     margin: 2rem auto;
     color: #8f246b;
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 a:hover {
     text-decoration: underline;
+    color: #ad07ad;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    form {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
 }

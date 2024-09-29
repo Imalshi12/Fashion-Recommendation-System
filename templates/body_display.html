@@ -7,6 +7,31 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='body_display.css') }}">
 </head>
 <body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>Style<span>Spark</span></p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="{{ url_for('home') }}" class="link active">Home</a></li>
+                    <li><a href="{{ url_for('dashboard') }}" class="link">Dashboard</a></li>
+                    <li><a href="about.html" class="link">About Us</a></li>
+                    <li><a href="contact.html" class="link">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                {% if current_user.is_authenticated %}
+                    <button class="btn"><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></button>
+                {% else %}
+                    <button class="btn"><a href="{{ url_for('login') }}">Sign in</a></button>
+                    <button class="btn"><a href="{{ url_for('register') }}">Sign up</a></button>
+                {% endif %}
+            </div>
+            
+        </nav>
+
+        
     <div class="container">
         <h1>Your Body Type: {{ body_shape }}</h1>
         <p class="description">Based on your measurements, your body shape is classified as {{ body_shape }}.</p>
@@ -26,13 +51,13 @@
                     <p><strong>Fashion Tips:</strong> Draw attention to your upper body with bright colors or patterns. Opt for A-line skirts and dresses that accentuate your waist and balance your proportions.</p>
                 </div>
             {% elif body_shape == 'Apple' %}
-                <img src="{{ url_for('static', filename='images/apple.jpg') }}" alt="Apple Body Shape">
+                <img src="{{ url_for('static', filename='images/apple01.jpg') }}" alt="Apple Body Shape">
                 <div class="body-details">
                     <p><strong>Characteristics:</strong> The apple body shape has a broader upper body with a larger bust and waist. The hips and legs are generally slimmer compared to the upper body.</p>
                     <p><strong>Fashion Tips:</strong> Opt for empire waistlines and V-neck tops to create a flattering silhouette. Choose flowy fabrics that skim over your waist and hips.</p>
                 </div>
             {% elif body_shape == 'Rectangle' %}
-                <img src="{{ url_for('static', filename='images/rectangle.jpg') }}" alt="Rectangle Body Shape">
+                <img src="{{ url_for('static', filename='images/rectangle01.jpg') }}" alt="Rectangle Body Shape">
                 <div class="body-details">
                     <p><strong>Characteristics:</strong> The rectangle body shape is characterized by a straight waist with similar measurements for the bust, waist, and hips. This shape is often referred to as athletic or lean.</p>
                     <p><strong>Fashion Tips:</strong> Add curves with peplum tops and belts. Experiment with layered outfits and fitted clothing to create a more defined waistline.</p>
@@ -41,7 +66,7 @@
             {% elif body_shape == 'Inverted Triangle' %}
                 <img src="{{ url_for('static', filename='images/IT.jpg') }}" alt="Inverted Traingle Body Shape">
                 <div class="body-details">
-                    <p><strong>Characteristics:</strong> The rectangle body shape is characterized by a straight waist with similar measurements for the bust, waist, and hips. This shape is often referred to as athletic or lean.</p>
+                    <p><strong>Characteristics:</strong> The inverted rectangle body shape is characterized by a straight waist with similar measurements for the bust, waist, and hips. This shape is often referred to as athletic or lean.</p>
                     <p><strong>Fashion Tips:</strong> Add curves with peplum tops and belts. Experiment with layered outfits and fitted clothing to create a more defined waistline.</p>
                 </div>
             {% endif %}

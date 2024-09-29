@@ -1,60 +1,57 @@
-/* predict.css */
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 body {
-    background: url('https://img.freepik.com/free-photo/dreamy-woman-posing-stylish-jacket_197531-13210.jpg?w=740&t=st=1725977939~exp=1725978539~hmac=f46235c619b3facabb90ad09d9b5f122bfe0c54639b52813f18aeee949f3006a') no-repeat center center fixed;
-    background-size: cover;
-    font-family: Arial, sans-serif;
+    font-family: 'Nunito', sans-serif;
+    background-color: #f0f4f8;
     color: #333;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    max-width: 800px;
+    margin: 40px auto;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 1200px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Header styles */
 header {
-    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 h1 {
-    font-size: 28px;
-    color: #600080;
-    text-align: center;
+    font-size: 2.5rem;
+    color: #66194d;
 }
 
+/* Main content styles */
 main {
-    width: 100%;
+    margin-bottom: 20px;
 }
 
+/* Table styles */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
-table, th, td {
-    border: 1px solid #ddd;
+thead {
+    background-color: #66194d;
+    color: white;
 }
 
 th, td {
+    border: 1px solid #ddd;
     padding: 12px;
     text-align: center;
 }
 
 th {
-    background-color: #600080;
-    color: white;
+    font-weight: bold;
 }
 
 tbody tr:nth-child(even) {
@@ -62,19 +59,26 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr:hover {
-    background-color: #e0e0e0;
+    background-color: #e6e6e6;
 }
 
+/* Footer styles */
 footer {
+    text-align: center;
     margin-top: 20px;
 }
 
 .back-link {
-    color: #600080;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #66194d;
+    color: white;
     text-decoration: none;
-    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .back-link:hover {
-    text-decoration: underline;
+    background-color: #bd30b6;
 }

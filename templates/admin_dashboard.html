@@ -5,42 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='admin_dash.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
-    <div class="container">
-        <h1>Admin Dashboard</h1>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('manage_fashion') }}">Manage Fashion Items</a></li>
-                <li><a href="{{ url_for('predictions') }}">View Predictions</a></li>
-                <li><a href="{{ url_for('admin_dashboard') }}">View All Users</a></li>
-                <li><a href="{{ url_for('logout') }}">Logout</a></li>
-            </ul>
-        </nav>
+    
+    <div class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <a href="{{ url_for('home') }}"><i class="fas fa-home"></i> Home</a>
+        
+        <!-- Manage Fashion Items -->
+        <a href="{{ url_for('manage_fashion') }}">
+            <i class="fas fa-tshirt"></i> Manage Items
+        </a>
+        
+        <!-- View Predictions -->
+        <a href="{{ url_for('predictions') }}">
+            <i class="fas fa-chart-line"></i> View Predictions
+        </a>
+        
+        <!-- View All Users -->
+        <a href="{{ url_for('admin_dashboard') }}">
+            <i class="fas fa-users"></i> View All Users
+        </a>
+       
+    <a href="#products"><i class="fas fa-box-open"></i> Products</a>
+    
+    <a href="#reports"><i class="fas fa-chart-bar"></i> Reports</a>
+    
+   
 
-        <h2>Registered Users</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Age</th>
-                    <th>Admin Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for user in users %}
-                <tr>
-                    <td>{{ user.id }}</td>
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.age }}</td>
-                    <td>{{ 'Yes' if user.is_admin else 'No' }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    
+    <a class="logout" href="{{ url_for('logout') }}">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+    </div>
+    
+
+    <div class="main-content">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Welcome, Admin</h1>
+                <p>Manage your platform effectively using the tools provided below.</p>
+               
+            </div>
+            <div class="hero-image">
+                <img src="static/images/admin.png" alt="Dashboard Image">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Registered Users</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Admin Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.age }}</td>
+                        <td>{{ 'Yes' if user.is_admin else 'No' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>

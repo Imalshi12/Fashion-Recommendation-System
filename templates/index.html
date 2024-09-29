@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - FashionFit</title>  
+    <title>Home - StyleSpark</title>  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
@@ -16,14 +16,14 @@
             <div class="nav-menu">
                 <ul>
                     <li><a href="{{ url_for('home') }}" class="link active">Home</a></li>
-                    <li><a href="{{ url_for('predict') }}" class="link">Predict</a></li>
+                    <li><a href="" class="link">Fashion Blog</a></li>
                     <li><a href="about.html" class="link">About Us</a></li>
                     <li><a href="contact.html" class="link">Contact Us</a></li>
                 </ul>
             </div>
             <div class="nav-button">
                 {% if current_user.is_authenticated %}
-                    <button class="btn"><a href="{{ url_for('logout') }}">Logout</a></button>
+                    <button class="btn"><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></button>
                 {% else %}
                     <button class="btn"><a href="{{ url_for('login') }}">Sign in</a></button>
                     <button class="btn"><a href="{{ url_for('register') }}">Sign up</a></button>

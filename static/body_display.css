@@ -2,15 +2,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 
 body {
-    font-family: 'Nunito', sans-serif;
-    background-color: #f5f5f5;
+    font-family: "Nunito", sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: #333;
+    
     
 }
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+}
+
+.nav-logo p{
+    font-size: 2rem;
+    margin-left: 40px;
+}
+span{
+    color: #cc3399;
+    font-family: "Dancing Script", cursive;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-menu ul li {
+    margin-right: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-menu ul li a:hover,
+.nav-menu ul li a.active {
+    color:  #cc3399;
+    font-size: 1rem;
+    font-weight: bold;
+
+}
+.nav-button {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-button .btn {
+    background: linear-gradient(135deg, #77205a, #e038a8);
+    border: none;
+    padding: 6px 12px;
+    color: #333;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 20px;
+}
+
+.nav-button .btn a {
+    color: #fff;
+    text-decoration: none;
+    font-family: "Nunito", sans-serif;
+}
+
+.nav-button .btn:hover {
+    background-color: #cc3399;
+}
+
 
 .container {
     background-color: #fff;
@@ -20,6 +91,7 @@ body {
     max-width: 800px;
     width: 100%;
     text-align: center;
+    margin-left: 300px;
 }
 
 h1 {
@@ -61,13 +133,14 @@ h1 {
 
 .body-details p strong {
     color: #8f246b;
+    font-size: 1.1rem;
 }
 
 .buy-button {
     display: inline-block;
     padding: 14px 24px;
     font-size: 1.1rem;
-    background-color: #8f246b;
+    background: linear-gradient(135deg, #77205a, #e038a8);
     color: #fff;
     text-decoration: none;
     border-radius: 8px;
@@ -77,7 +150,7 @@ h1 {
 
 .buy-button:hover {
     background-color: #ff99cc;
-    color: #333;
+    color: #fff;
 }
 
 /* Responsive Design */
